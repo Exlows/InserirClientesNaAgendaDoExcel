@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.95.2" />
+    <PackageReference Include="ViaCep" Version="3.0.40" />
   </ItemGroup>
 
 </Project>

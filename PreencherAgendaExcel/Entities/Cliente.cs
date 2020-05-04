@@ -53,7 +53,7 @@ namespace PreencherAgendaExcel.Entities
                 // Encontra a idade subitraindo o ano atual do ano do nascimento
                 int idade = DateTime.Now.Year - dataDoNascimento.Year;
                 // Verifica se o dia do Ano atual é maior que o do nascimento, se for subtrai um ano pois ainda não fez aniversário
-                if (diaDoAnoAtual > diaDoAnoDoNascimento)
+                if (diaDoAnoAtual < diaDoAnoDoNascimento)
                 {
                     idade -= 1;
                 }
@@ -61,10 +61,6 @@ namespace PreencherAgendaExcel.Entities
                 return idade;
             }
             
-            set
-            {
-                
-            }
         }
 
 
