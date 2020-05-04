@@ -45,8 +45,8 @@ namespace PreencherAgendaExcel.Entities
         {
             get
             {
-                string local = new ViaCepClient().Search(CEP).Neighborhood;
-                return local;
+                string bairro = new ViaCepClient().Search(CEP).Neighborhood;
+                return bairro;
             }
         }
 
@@ -54,8 +54,8 @@ namespace PreencherAgendaExcel.Entities
         {
             get
             {
-                string local = new ViaCepClient().Search(CEP).City;
-                return local;
+                string cidade = new ViaCepClient().Search(CEP).City;
+                return cidade;
             }
         }
 
@@ -63,11 +63,10 @@ namespace PreencherAgendaExcel.Entities
         {
             get
             {
-                string local = new ViaCepClient().Search(CEP).StateInitials;
-                return local;
+                string estado = new ViaCepClient().Search(CEP).StateInitials;
+                return estado;
             }
         }
-
 
         public override string ToString()
         {
