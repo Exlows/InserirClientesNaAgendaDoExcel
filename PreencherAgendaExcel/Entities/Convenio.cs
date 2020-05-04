@@ -13,6 +13,10 @@ namespace PreencherAgendaExcel.Entities
         {
         }
 
-        
+        public Convenio(string nomeDaEmpresa, string planoDeSaude)
+        {
+            NomeDaEmpresa = nomeDaEmpresa;
+            PlanoDeSaude = planoDeSaude;
+        }
     }
 }
