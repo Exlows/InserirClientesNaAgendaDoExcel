@@ -12,18 +12,21 @@ namespace PreencherAgendaExcel.Entities
         public string Email { get; set; }
         public string Telefone { get; set; }
         public GeneroCliente Genero { get; set; }
-        public Convenio Convenio { get; set; }
+        
         private int _idade;
-
-        public Cliente(string nome, DateTime dataDeNascimento, string email, string telefone, GeneroCliente genero, Convenio convenio)
+        public Convenio Convenio { get; set; }
+        public Endereco Endereco { get; set; }
+        
+        public Cliente(string nome, DateTime dataDeNascimento, string email, string telefone, GeneroCliente genero, Convenio convenio, Endereco endereco)
         {
             Nome = nome;
             DataDeNascimento = dataDeNascimento;
             Email = email;
             Telefone = telefone;
-            Convenio = convenio;
             Genero = genero;
             _idade = Idade;
+            Convenio = convenio;
+            Endereco = endereco;
         }
 
         public int Idade
@@ -75,7 +78,14 @@ namespace PreencherAgendaExcel.Entities
                 $"Telefone: {Telefone}\n" +
                 $"Genero: {Genero}\n" +
                 $"Convenio Empresa: {Convenio.NomeDaEmpresa}\n" +
-                $"Convenio PLano: {Convenio.PlanoDeSaude}";
+                $"Convenio PLano: {Convenio.PlanoDeSaude}\n" +
+                $"Local: {Endereco.Local}\n" +
+                $"Numero: {Endereco.Numero}\n" +
+                $"Complemento: {Endereco.Complemento}\n" +
+                $"Bairro: {Endereco.Bairro}\n" +
+                $"Cidade: {Endereco.Cidade}\n" +
+                $"Estado: {Endereco.Estado}\n" +
+                $"CEP: {Endereco.CEP}";
         }
     }
 }
