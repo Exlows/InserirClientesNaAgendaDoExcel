@@ -10,12 +10,12 @@ namespace PreencherAgendaExcel
 
         static void Main(string[] args)
         {
-            string cep = "02315130";
-            int numero = 49;
-            string complemento = "Casa 01";
+            //string cep = "02315130";
+            //int numero = 49;
+            //string complemento = "Casa 01";
 
-            Endereco endereco = new Endereco(cep, numero, complemento);
-            Console.WriteLine(endereco);
+            //Endereco endereco = new Endereco(cep, numero, complemento);
+            //Console.WriteLine(endereco);
         }
     }
 }

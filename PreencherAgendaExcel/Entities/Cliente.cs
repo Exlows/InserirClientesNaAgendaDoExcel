@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PreencherAgendaExcel.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,11 +11,11 @@ namespace PreencherAgendaExcel.Entities
         public DateTime DataDeNascimento { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
+        public GeneroCliente Genero { get; set; }
         public Convenio Convenio { get; set; }
-        public string Genero { get; set; }
         private int _idade;
 
-        public Cliente(string nome, DateTime dataDeNascimento, string email, string telefone, Convenio convenio, string genero)
+        public Cliente(string nome, DateTime dataDeNascimento, string email, string telefone, GeneroCliente genero, Convenio convenio)
         {
             Nome = nome;
             DataDeNascimento = dataDeNascimento;
@@ -25,9 +26,9 @@ namespace PreencherAgendaExcel.Entities
             _idade = Idade;
         }
 
-        public int Idade 
+        public int Idade
         {
-            get 
+            get
             {
                 // Pega a data de nascimento inserida e coloca em uma variável
                 DateTime dataDoNascimento = DateTime.Parse(DataDeNascimento.ToString());
@@ -60,7 +61,7 @@ namespace PreencherAgendaExcel.Entities
 
                 return idade;
             }
-            
+
         }
 
 
