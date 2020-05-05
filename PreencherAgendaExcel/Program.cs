@@ -44,13 +44,11 @@ namespace PreencherAgendaExcel
                 Console.Write("Complemento: ");
                 string complemento = Console.ReadLine();
 
-
-
                 Cliente cliente = new Cliente(nome, nascimento, email, telefone, genero, new Convenio(empresaDoConvenio, planoDeSaude), new Endereco(cep, numero, complemento));
                 Console.WriteLine();
 
-                Console.WriteLine(cliente);
-                Console.WriteLine();
+                Agenda agenda = new Agenda(cliente);
+                agenda.SalvarClienteNoExcel();
 
                 Console.Write("Deseja continuar [S/N]: ");
                 resposta = Console.ReadLine().ToUpper();
