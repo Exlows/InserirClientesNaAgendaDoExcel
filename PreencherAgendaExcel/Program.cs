@@ -16,19 +16,21 @@ namespace PreencherAgendaExcel
             {
                 Console.Clear();
 
+                Console.WriteLine("---------------------------------------------------------------");
                 Console.WriteLine("DADOS DO CLIENTE: ");
                 Console.WriteLine("---------------------------------------------------------------");
                 Console.Write("Nome: ");
                 string nome = Console.ReadLine();
-                Console.Write("Data do nascimento [dd/mm/aaaa]: ");
-                DateTime nascimento = DateTime.Parse(Console.ReadLine());
+                Console.Write("Data do nascimento [ddmmaaaa]: ");
+                string dataAniversarioSemtratamento = Console.ReadLine();
+                DateTime nascimento = DateTime.Parse(dataAniversarioSemtratamento.Substring(0, 2) + "/" + dataAniversarioSemtratamento.Substring(2, 2) + "/" + dataAniversarioSemtratamento.Substring(4));
                 Console.Write("Email : ");
                 string email = Console.ReadLine();
                 Console.Write("Telefone: ");
                 string telefone = Console.ReadLine();
                 Console.Write("Genero [1: Masculino / 2: Feminino]: ");
                 GeneroCliente genero = (GeneroCliente)Enum.ToObject(typeof(GeneroCliente), int.Parse(Console.ReadLine()));
-                Console.WriteLine();
+                Console.WriteLine("---------------------------------------------------------------");
                 Console.WriteLine("DADOS DO CONVENIO:");
                 Console.WriteLine("---------------------------------------------------------------");
                 Console.Write("Empresa do Convenio: ");
@@ -37,6 +39,7 @@ namespace PreencherAgendaExcel
                 string planoDeSaude = Console.ReadLine();
                 Console.WriteLine("---------------------------------------------------------------");
                 Console.WriteLine("ENDEREÇO:");
+                Console.WriteLine("---------------------------------------------------------------");
                 Console.Write("CEP: ");
                 string cep = Console.ReadLine();
                 Console.Write("Numero: ");

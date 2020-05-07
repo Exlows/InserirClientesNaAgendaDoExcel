@@ -7,77 +7,50 @@ namespace PreencherAgendaExcel.Entities
 {
     public class Endereco
     {
-        public string CEP { get; set; }
-        public int Numero { get; set; }
-        public string Complemento { get; set; }
-        private string _local;
-        private string _bairro;
-        private string _cidade;
-        private string _estado;
-        
+        public string CEP { get; }
+        public int Numero { get; }
+        public string Complemento { get;}
+        public string  Logradouro { get; }
+        public string Bairro { get; }
+        public string Cidade { get; }
+        public string Estado { get; }
 
-        public Endereco()
-        {
-        }
 
-        public Endereco(string cep, int numero, string complemento)
+        public Endereco(string cep, int numero, string complemento, string logradouro = "", string bairro = "")
         {
             CEP = cep;
             Numero = numero;
             Complemento = complemento;
-            _local = Local;
-            _bairro = Bairro;
-            _cidade = Cidade;
-            _estado = Estado;
-            
-        }
 
-        public string Local
-        {
-            get
+            var viaCepResult = new ViaCepClient().Search(CEP);
+
+            //Logradouro = !string.IsNullOrEmpty(viaCepResult.Street) ? viaCepResult.Street : logradouro;
+            Logradouro = viaCepResult.Street ?? logradouro;
+
+            if (!string.IsNullOrEmpty(viaCepResult.Neighborhood))
             {
-                string local = new ViaCepClient().Search(CEP).Street;
-                return local;
+                Bairro = viaCepResult.Neighborhood;
             }
-        }
-
-        public string Bairro
-        {
-            get
+            else
             {
-                string bairro = new ViaCepClient().Search(CEP).Neighborhood;
-                return bairro;
+                Bairro = bairro;
             }
+
+            Cidade = viaCepResult.City;
+            Estado = viaCepResult.StateInitials;
         }
 
-        public string Cidade
-        {
-            get
-            {
-                string cidade = new ViaCepClient().Search(CEP).City;
-                return cidade;
-            }
-        }
 
-        public string Estado
-        {
-            get
-            {
-                string estado = new ViaCepClient().Search(CEP).StateInitials;
-                return estado;
-            }
-        }
-
-        public override string ToString()
-        {
-            return $"ENDEREÇO:\n" +
-                $"Local: {_local}\n" +
-                $"Numero: {Numero}\n" +
-                $"Complemento: {Complemento}\n" +
-                $"Bairro: {_bairro}\n" +
-                $"Cidade: {_cidade}\n" +
-                $"Estado: {_estado}\n" +
-                $"Cep: {CEP}\n";
-        }
+        //public override string ToString()
+        //{
+        //    return $"ENDEREÇO:\n" +
+        //        $"Local: {_local}\n" +
+        //        $"Numero: {Numero}\n" +
+        //        $"Complemento: {Complemento}\n" +
+        //        $"Bairro: {_bairro}\n" +
+        //        $"Cidade: {_cidade}\n" +
+        //        $"Estado: {_estado}\n" +
+        //        $"Cep: {CEP}\n";
+        //}
     }
 }

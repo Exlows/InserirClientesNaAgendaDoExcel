@@ -12,8 +12,7 @@ namespace PreencherAgendaExcel.Entities
         public string Email { get; set; }
         public string Telefone { get; set; }
         public GeneroCliente Genero { get; set; }
-        
-        private int _idade;
+     
         public Convenio Convenio { get; set; }
         public Endereco Endereco { get; set; }
         
@@ -24,7 +23,6 @@ namespace PreencherAgendaExcel.Entities
             Email = email;
             Telefone = telefone;
             Genero = genero;
-            _idade = Idade;
             Convenio = convenio;
             Endereco = endereco;
         }
@@ -68,24 +66,24 @@ namespace PreencherAgendaExcel.Entities
         }
 
 
-        public override string ToString()
-        {
-            return $"Cliente:\n" +
-                $"Nome: {Nome}\n" +
-                $"Data de Nascimento: {DataDeNascimento}\n" +
-                $"Idade: {_idade}\n" +
-                $"Email: {Email}\n" +
-                $"Telefone: {Telefone}\n" +
-                $"Genero: {Genero}\n" +
-                $"Convenio Empresa: {Convenio.NomeDaEmpresa}\n" +
-                $"Convenio PLano: {Convenio.PlanoDeSaude}\n" +
-                $"Local: {Endereco.Local}\n" +
-                $"Numero: {Endereco.Numero}\n" +
-                $"Complemento: {Endereco.Complemento}\n" +
-                $"Bairro: {Endereco.Bairro}\n" +
-                $"Cidade: {Endereco.Cidade}\n" +
-                $"Estado: {Endereco.Estado}\n" +
-                $"CEP: {Endereco.CEP}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"Cliente:\n" +
+        //        $"Nome: {Nome}\n" +
+        //        $"Data de Nascimento: {DataDeNascimento}\n" +
+        //        $"Idade: {_idade}\n" +
+        //        $"Email: {Email}\n" +
+        //        $"Telefone: {Telefone}\n" +
+        //        $"Genero: {Genero}\n" +
+        //        $"Convenio Empresa: {Convenio.NomeDaEmpresa}\n" +
+        //        $"Convenio PLano: {Convenio.PlanoDeSaude}\n" +
+        //        $"Local: {Endereco.Local}\n" +
+        //        $"Numero: {Endereco.Numero}\n" +
+        //        $"Complemento: {Endereco.Complemento}\n" +
+        //        $"Bairro: {Endereco.Bairro}\n" +
+        //        $"Cidade: {Endereco.Cidade}\n" +
+        //        $"Estado: {Endereco.Estado}\n" +
+        //        $"CEP: {Endereco.CEP}";
+        //}
     }
 }
